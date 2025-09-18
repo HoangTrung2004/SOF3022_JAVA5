@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/rectangle")
 public class RectController {
 
-    // Hiển thị form ban đầu
+
     @GetMapping("/form")
     public String form() {
-        return "rectangle"; // mở templates/rectangle.html
+        return "rectangle";
     }
 
     // Xử lý khi người dùng submit form
