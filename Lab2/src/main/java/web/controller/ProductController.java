@@ -29,7 +29,8 @@ public class ProductController {
     public List<Product> getItems() {
         return Arrays.asList(
                 new Product("A", 1.0),
-                new Product("B", 12.0)
+                new Product("B", 12.0),
+                new Product("Iphone 17", 1000.0)
         );
     }
 }

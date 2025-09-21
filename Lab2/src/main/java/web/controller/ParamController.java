@@ -15,6 +15,7 @@ public class ParamController {
 
     // XỬ LÝ SUBMIT
     @PostMapping("/param/save/{x}")
+
     public String save(@PathVariable("x") String x,   // lấy x từ đường dẫn {x}
                        @RequestParam("y") String y,   // lấy y từ form input name="y"
                        Model model) {
@@ -23,4 +24,6 @@ public class ParamController {
         model.addAttribute("y", y);
         return "param/form";
     }
+
+
 }

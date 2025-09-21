@@ -5,11 +5,9 @@
   <title>Lab2 - Product (Bài 3 & 4)</title>
 </head>
 <body>
-<h3>Bài 3 & 4: Nhập Product + Model & @ModelAttribute</h3>
+<h3>Bài 3 & 4: Nhập Product model & @ModelAttribute</h3>
 
-<!-- Form gửi POST đến /product/save -->
 <form action="/product/save" method="post">
-  <!-- B4: điền mặc định từ p1 (nếu có) -->
   <input name="name"  th:value="${p1?.name}"  placeholder="Tên sản phẩm">
   <input name="price" th:value="${p1?.price}" placeholder="Giá" type="number" step="0.01">
   <button>Save</button>
@@ -17,31 +15,23 @@
 
 <hr>
 
-<!-- Khối B4: ?1name / ?1price (giá trị mặc định p1) -->
 <ul>
-  <li>?1name:  <span th:text="${p1?.name}  ?: 'N/A'"></span></li>
-  <li>?1price: <span th:text="${p1?.price} ?: 'N/A'"></span></li>
+  <li>?1name:  <span th:text="${p1?.name}"></span></li>
+  <li>?1price: <span th:text="${p1?.price}"></span></li>
 </ul>
 
-<!-- Khối B3/B4: ?2name / ?2price (kết quả vừa submit, biến p2) -->
 <ul>
-  <li>?2name:  <span th:text="${p2?.name}  ?: 'N/A'"></span></li>
-  <li>?2price: <span th:text="${p2?.price} ?: 'N/A'"></span></li>
+  <li>?2name:  <span th:text="${p2?.name}"></span></li>
+  <li>?2price: <span th:text="${p2?.price}"></span></li>
 </ul>
 
-<!-- Khối B4: ?3 = danh sách items -->
 <ul>
-  <th:block th:each="item : ${items}">
-    <li>item.name:  <span th:text="${item.name}"></span></li>
-    <li>item.price: <span th:text="${item.price}"></span></li>
-  </th:block>
 </ul>
+<th:block th:each="item : ${items}">
+  <li>item.name:  <span th:text="${item.name}"></span></li>
+  <li>item.price: <span th:text="${item.price}"></span></li>
+</th:block>
 
-<!-- (Tuỳ chọn) Nếu muốn hiển thị trực tiếp đối tượng p2 cho Bài 3:
-<ul>
-  <li>p2.name:  <span th:text="${p2?.name}  ?: 'N/A'"></span></li>
-  <li>p2.price: <span th:text="${p2?.price} ?: 'N/A'"></span></li>
-</ul>
--->
+
 </body>
 </html>

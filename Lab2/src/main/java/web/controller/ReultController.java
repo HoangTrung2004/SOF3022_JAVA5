@@ -8,7 +8,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class ReultController {
 
-    @RequestMapping("/a")            // view a.html nằm ở templates/a.html
+    @RequestMapping("/a")
     public String m1() {
         return "a";
     }
@@ -28,6 +28,7 @@ public class ReultController {
     @ResponseBody
     @RequestMapping("/d")
     public String m4() {
+
         return "I come from d";      // trả raw text
     }
 }
