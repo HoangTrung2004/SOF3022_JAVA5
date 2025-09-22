@@ -15,18 +15,15 @@ public class RectController {
         return "rectangle";
     }
 
-    // Xử lý khi người dùng submit form
     @PostMapping("/calc")
     public String calc(HttpServletRequest request, Model model) {
         // Lấy giá trị từ form (chuỗi)
-        String w = request.getParameter("width");   // name="width" trong form
-        String h = request.getParameter("height");  // name="height" trong form
+        String w = request.getParameter("width");
+        String h = request.getParameter("height");
 
-        // Chuyển sang số (double)
         double width = Double.parseDouble(w);
         double height = Double.parseDouble(h);
 
-        // Tính toán
         double area = width * height;
         double perimeter = 2 * (width + height);
 
@@ -36,6 +33,6 @@ public class RectController {
         model.addAttribute("area", area);
         model.addAttribute("perimeter", perimeter);
 
-        return "rectangle"; // render lại rectangle.html
+        return "rectangle";
     }
 }

@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 @Controller
 public class OkController {
 
-    // ======= TRANG HIỂN THỊ FORM (GET /ok) =======
     @GetMapping("/ok")
     public String ok() {
         return "ok";

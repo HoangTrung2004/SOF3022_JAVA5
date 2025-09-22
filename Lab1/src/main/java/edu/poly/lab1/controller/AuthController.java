@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/login")
 public class AuthController {
 
-    // Hiển thị form: GET /login/form  -> login.html
     @GetMapping("/form")
     public String form() {
         return "login";

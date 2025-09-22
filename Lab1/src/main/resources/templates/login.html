@@ -6,9 +6,6 @@
 </head>
 <body>
 <h2>Trang đăng nhập</h2>
-
-<p th:if="${message}"  th:text="${message}" style="color:red;"></p>
-
 <form action="/login/check" method="post">
     <div>
         <label>Username:</label>
@@ -19,9 +16,12 @@
         <label>Password:</label>
         <input type="password" name="password">
     </div>
-
     <button type="submit">Đăng nhập</button>
 </form>
+
+<p th:if="${message}" th:text="${message}" style="color:red;"></p>
+
+<p><a href="/poly/hello">↩ Về Hello</a></p>
 
 </body>
 </html>

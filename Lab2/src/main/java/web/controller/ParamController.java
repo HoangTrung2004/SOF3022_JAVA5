@@ -7,13 +7,12 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class ParamController {
 
-    // HIỂN THỊ FORM
     @RequestMapping("/param/form")
     public String form() {
         return "param/form";
     }
 
-    // XỬ LÝ SUBMIT
+
     @PostMapping("/param/save/{x}")
 
     public String save(@PathVariable("x") String x,   // lấy x từ đường dẫn {x}
