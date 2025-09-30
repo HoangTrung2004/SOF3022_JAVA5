@@ -6,7 +6,6 @@
 </head>
 <body>
     <h3>Fill to SelectBox</h3>
-
     <select name="cbo">
         <th:block th:each="staff: ${list}">
           <option th:value="${staff.id}" th:text="${staff.fullname}"></option>
@@ -14,6 +13,14 @@
     </select>
 
     <h3>Create Radio Button Group</h3>
+    <th:block th:each="staff: ${list}">
+        <label>
+            <input type="radio" name="rdo" th:value="${staff.id}">
+            <th:block th:text="${staff.fullname}"></th:block>
+        </label>
+        <br>
+    </th:block>
+
 <!--    <label>-->
 <!--      <input type="radio" name="rdo" value="user1@gmail.com">-->
 <!--      nguyễn văn user1-->
@@ -43,13 +50,5 @@
 <!--      <input type="radio" name="rdo" value="user6@gmail.com">-->
 <!--      nguyễn văn user6-->
 <!--    </label>-->
-
-    <th:block th:each="staff: ${list}">
-          <label>
-            <input type="radio" name="rdo" th:value="${staff.id}">
-            <th:block th:text="${staff.fullname}"></th:block>
-          </label>
-          <br>
-        </th:block>
 </body>
 </html>

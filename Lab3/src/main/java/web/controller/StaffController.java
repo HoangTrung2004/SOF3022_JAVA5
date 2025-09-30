@@ -29,7 +29,7 @@ public class StaffController {
     public String detail(Model model) {
         Staff staff = Staff.builder()
                 .id("username@gmai;.com")
-                .fullname("Nguyễn Văn Tèo")
+                .fullname("Nguyễn Văn tèo")
                 .level(2)
                 .build();
         model.addAttribute("staff", staff);
@@ -37,7 +37,6 @@ public class StaffController {
     }
 
     //         BÀI 2: LIST STAFF
-
     @RequestMapping("/list")
     public String list(Model model) {
         model.addAttribute("list", seed());
@@ -45,7 +44,6 @@ public class StaffController {
     }
 
     //      BÀI 4: LIST STATUS
-
     @RequestMapping("/status")
     public String status(Model model) {
         model.addAttribute("list", seed());
@@ -57,5 +55,11 @@ public class StaffController {
     public String control(Model model) {
         model.addAttribute("list", seed());
         return "demo/StaffControl";
+    }
+
+    @RequestMapping("/them")
+    public String them(Model model) {
+        model.addAttribute("list", seed());
+        return "demo/them";
     }
 }
