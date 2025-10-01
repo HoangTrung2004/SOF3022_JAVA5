@@ -7,30 +7,27 @@
 <body>
 <h3>Bài 3 & 4: Nhập Product model & @ModelAttribute</h3>
 
+<h3>Thêm sản phẩm mới</h3>
 <form action="/product/save" method="post">
-  <input name="name"  th:value="${p1?.name}"  placeholder="Tên sản phẩm">
-  <input name="price" th:value="${p1?.price}" placeholder="Giá" type="number" step="0.01">
+  <input name="name"  placeholder="Tên sản phẩm">
+  <input name="price" placeholder="Giá" type="number">
   <button>Save</button>
 </form>
+<h3>Sản phẩm mặc định (p1):</h3>
+<li>?1name:  <span th:text="${p1?.name}"></span></li>
+<li>?1price: <span th:text="${p1?.price}"></span></li>
+<hr>
+<h3>Sản phẩm vừa nhập</h3>
+<li>?1name:  <span th:text="${p2?.name}"></span></li>
+<li>?1price: <span th:text="${p2?.price}"></span></li>
 
 <hr>
-
+<h3>Danh sách sản phẩm (items):</h3>
 <ul>
-  <li>?1name:  <span th:text="${p1?.name}"></span></li>
-  <li>?1price: <span th:text="${p1?.price}"></span></li>
+  <th:block th:each="item : ${items}">
+    <li th:text="${item.name} + ' - ' + ${item.price}"></li>
+  </th:block>
 </ul>
-
-<ul>
-  <li>?2name:  <span th:text="${p2?.name}"></span></li>
-  <li>?2price: <span th:text="${p2?.price}"></span></li>
-</ul>
-
-<ul>
-</ul>
-<th:block th:each="item : ${items}">
-  <li>item.name:  <span th:text="${item.name}"></span></li>
-  <li>item.price: <span th:text="${item.price}"></span></li>
-</th:block>
 
 
 </body>
