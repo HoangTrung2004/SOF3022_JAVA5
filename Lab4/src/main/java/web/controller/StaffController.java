@@ -13,30 +13,30 @@ import web.model.Staff;
 public class StaffController {
 
     @GetMapping("/form")
-    public String form(Model model) {
-        model.addAttribute("staff", new Staff());
-        model.addAttribute("message", "Vui lòng nhập thông tin nhân viên!!!!!!");
-        return "demo/staff-create";
+    public String showForm(Model model, @ModelAttribute("staff") Staff staff) {
+        model.addAttribute("message", "Vui lòng nhập thông tin nhân viên!");
+        return "staff-create";
     }
 
     @PostMapping("/save")
-    public String create(Model model,
-                         @Valid @ModelAttribute("staff") Staff staff, // bật validate
-                         Errors errors,
-                         @RequestPart(value="photo_file", required=false) MultipartFile photoFile) {
+    public String save(Model model,
+                       @Valid @ModelAttribute("staff") Staff staff,
+                       Errors errors,
+                       @RequestPart(value = "photo_file", required = false)
+                       MultipartFile photoFile) {
 
-        // nếu có upload file
-        if(photoFile != null && !photoFile.isEmpty()) {
+        if (photoFile != null && !photoFile.isEmpty()) {
             staff.setPhoto(photoFile.getOriginalFilename());
         }
 
-        // xử lý message
         if (errors.hasErrors()) {
             model.addAttribute("message", "Vui lòng sửa các lỗi bên dưới!");
         } else {
-            model.addAttribute("message", "Xin chào " + staff.getFullname() + " - Dữ liệu đã hợp lệ!");
+            model.addAttribute("message", "Xin chào " + staff.getFullname());
         }
 
-        return "demo/staff-create";
+
+        return "staff-create";                               // → Quay lại form
     }
 }
+
