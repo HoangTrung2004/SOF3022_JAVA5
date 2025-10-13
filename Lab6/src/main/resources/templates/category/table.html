@@ -1,0 +1,16 @@
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="table">
+  <table border="1" style="width:100%">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+    <tr th:each="c : ${items}">
+      <td th:text="${c.id}"></td>
+      <td th:text="${c.name}"></td>
+      <td>
+        <a th:href="@{|/category/edit/${c.id}|}">Edit</a>
+      </td>
+    </tr>
+  </table>
+</div>
