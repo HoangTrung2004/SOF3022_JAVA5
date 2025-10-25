@@ -11,35 +11,25 @@ import java.util.List;
 
 @Controller
 public class CategoryController {
-
     @Autowired
     CategoryDAO dao;
 
     @RequestMapping("/category/index")
     public String index(Model model) {
-        Category item = new Category();
-        model.addAttribute("item", item);
-
-        List<Category> items = dao.findAll();// danh sách
-        model.addAttribute("items", items);
-
+        model.addAttribute("item", new Category());
+        model.addAttribute("items", dao.findAll());
         return "category/index";
     }
 
     @RequestMapping("/category/edit/{id}")
     public String edit(Model model, @PathVariable("id") String id) {
-        Category item = dao.findById(id).orElse(new Category());
-        model.addAttribute("item", item);
+        model.addAttribute("item", dao.findById(id).get());
         model.addAttribute("items", dao.findAll());
         return "category/index";
     }
 
     @RequestMapping("/category/create")
     public String create(Category item) {
-        if (item.getId() == null || item.getId().isBlank() ||
-                item.getName() == null || item.getName().isBlank()) {
-            return "redirect:/category/index";
-        }
         dao.save(item);
         return "redirect:/category/index";
     }
@@ -47,7 +37,6 @@ public class CategoryController {
     @RequestMapping("/category/update")
     public String update(Category item) {
         dao.save(item);
-        // theo đề thường quay về trang edit của chính item sau khi update
         return "redirect:/category/edit/" + item.getId();
     }
 
@@ -56,4 +45,5 @@ public class CategoryController {
         dao.deleteById(id);
         return "redirect:/category/index";
     }
+
 }

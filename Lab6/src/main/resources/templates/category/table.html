@@ -5,11 +5,11 @@
       <th>Name</th>
       <th></th>
     </tr>
-    <tr th:each="c : ${items}">
-      <td th:text="${c.id}"></td>
-      <td th:text="${c.name}"></td>
+    <tr th:each="item : ${items}">
+      <td th:text="${item.id}"></td>
+      <td th:text="${item.name}"></td>
       <td>
-        <a th:href="@{|/category/edit/${c.id}|}">Edit</a>
+        <a th:href="@{|/category/edit/${item.id}|}">Edit</a>
       </td>
     </tr>
   </table>
