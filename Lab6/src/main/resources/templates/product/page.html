@@ -24,7 +24,7 @@
 </table>
 <a th:href="@{/product/page(p=0)}">First</a>
 <a th:href="@{/product/page(p=${page.number - 1})}">Previous</a>
-<a th:href="@{/product/page(p=${page.number + 1})}">Next</a>
+<a th:href="@{/product/page(p=${page.number + 1})}">Next..</a>
 <a th:href="@{/product/page(p=${page.totalPages - 1})}">Last</a>
 <ul>
     <li>Số thực thể hiện tại: <span th:text="${page.numberOfElements}"></span></li>
